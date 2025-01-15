@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>{{ title }}</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz App</h1>
+        <nav>
+            <a href="index.php">Home</a>
+            {% if session.username is defined %}
+                <a href="quiz.php">Quiz</a>
+                <a href="scoreboard.php">Scoreboard</a>
+                <a href="logout.php">Logout</a>
+            {% else %}
+                <a href="login.php">Login</a>
+                <a href="register.php">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; {{ "now"|date("Y") }} Quiz App</p>
+    </footer>
+</body>
+</html>
